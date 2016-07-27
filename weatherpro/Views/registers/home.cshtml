@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "home";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <link href="@Url.Content("~/Content/ourproject/")view.css" rel="stylesheet" type="text/css">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <script src="@Url.Content("~/Content/ourproject/")https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="@Url.Content("~/Content/ourproject/")http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/ourproject/")http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>Weather</title>
+  <!-- <script type="text/javascript">
+        window.onload = function(){
+        //Get submit button
+        var submitbutton = document.getElementById("tfq");
+        //Add listener to submit button
+        if(submitbutton.addEventListener){
+        submitbutton.addEventListener("click", function() {
+        if (submitbutton.value == 'Search your city'){//Customize this text string to whatever you want
+           submitbutton.value = '';
+        }
+       });
+      }
+     }
+
+
+/*$(document).ready(function(){
+	$(".closebtn1").click(function(){
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+});
+
+});*/
+
+    </script>    -->
+</head>
+<body class="body">
+    <header>
+        <nav class="fixed-nav-bar">
+            <div class="firstheader" style="background-color: #2a2a2a;">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a id="top1" href="#"> <i class="fa fa-envelope"></i> Support Center</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span class="topheader">
+                    <a id="top1" href="@Url.Content("~/Content/ourproject/")FindPage.html"> <i class="fa fa-search"></i>&nbsp Weather in your city</a>
+                    <a id="top1" href="@Url.Action("Login", "registers")"> <i class="fa fa-sign-in"></i>&nbsp Sign In</a>
+                    <a id="top1" href="@Url.Action("Create", "registers")"> <i class="fa fa-arrow-circle-o-down"></i>&nbsp Sign Up</a>
+                </span>
+                <span class="form">
+                    <span class="switch-field">
+                        <input type="radio" id="switch_left" name="switch_2" value="yes" checked />
+                        <label for="switch_left">&#x2103;</label>
+
+                        <input type="radio" id="switch_right" name="switch_2" value="no" />
+                        <label for="switch_right">&#x2109;</label>
+                    </span>
+                </span>
+            </div>
+            <nav class="navbar">
+
+                <ul>
+                    <a href="@Url.Content("~/Content/ourproject/")home.html"><img style="width:40%;height: 15%;margin-left:25%;padding: 1.5% 0 0 0;" src="@Url.Content("~/Content/ourproject/")Logo.png" alt="Open Weather Map"></a>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp
+                    <li><a href="@Url.Content("~/Content/ourproject/")final.html">Weather</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Maps &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Weather maps</a></li>
+                            <li><a href="#">Current satellite maps</a></li>
+                            <li><a href="#">Beautiful maps</a></li>
+                            <li><a href="#">Map Editor 2.0</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Stations</a></li>
+                    <li><a href="#">News</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">About &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About company</a></li>
+                            <li><a href="#">OWM Platform</a></li>
+                            <li><a href="#">Big Data Technology</a></li>
+                            <li><a href="#">Meteorological models</a></li>
+                            <li><a href="#">Data sources</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <img width="100%" src="@Url.Content("~/Content/ourproject/")image1.png">
+    </div>
+    <section>
+        <div id="tf1header">
+            <form id="tf1newsearch">
+                <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" style="-webkit-border-radius: 5px; -moz-border-radius:5px;" placeholder="Your city name">&nbsp&nbsp
+              
+                  <button onclick='document.location.href="@Url.Content("~/Content/ourproject/FindPage.html")"' style="background:#D26c22;color:white;-webkit-border-radius: 5px;border: none; -moz-border-radius:5px;padding:1.4%"><b>Search</b></button>
+            </form>
+            <div class="tfclear"></div>
+        </div>
+        <hr><center>
+            <h2 style="color:#d26c22; font-family:Oswald,sans-serif;font-size: 200%">Current weather and forecasts in your city</h2>
+        </center>
+    </section>
+    <frameset>
+        <iframe name="aside" src="@Url.Content("~/Content/ourproject/")aside.html" width="30%" scrolling="no" height="500px" style="float:center" frameborder="0"></iframe>
+        <iframe name="html" src="@Url.Content("~/Content/ourproject/")main.html" width="60%" scrolling="no" height="500px" frameborder="0" style="float:right"></iframe>
+    </frameset>
+    <br>
+    <br>
+    <div>
+        <center>
+            <h2 style="color:#b5b5b5; font-family:Oswald,sans-serif;font-size:75%;width:100%">
+                Get current weather, daily forecast for 16 days, and 3-hourly forecast 5 days for your city. Helpful stats, graphics, and this day in history charts are available for your reference. Interactive maps show precipitation, clouds, pressure, wind around your location.
+            </h2>
+            <button style="background:#D26c22;color:white;-webkit-border-radius: 5px;border: none; -moz-border-radius:5px;padding:1%"><b>More weather in your city</b></button>
+        </center>
+    </div>
+    <br>
+    <br><br>
+    <hr>
+    <div>
+        <center>
+            <div>
+                <h2 style="color:#d26c22; font-family:Oswald,sans-serif;font-size: 200%">Weather Maps</h2>
+                <a href="http://openweathermap.org/weathermap">
+                    <img src="@Url.Content("~/Content/ourproject/")map.png" />
+                </a>
+                <a href="http://openweathermap.org/weathermap">
+                    <img src="@Url.Content("~/Content/ourproject/")satelite.png" />
+                </a>
+                <a href="http://owm.io/modis">
+                    <img src="@Url.Content("~/Content/ourproject/")sat.png" />
+                </a>
+            </div>
+            <div>
+                <div style="float:left; width:20%;margin-left:15%">
+                    <h4>Current weather</h4>
+                    Watching for current temperature and weather conditions in your city or any other location on the interactive global map.
+                </div>
+                <div style="float:left; width:18%;margin-left:5%">
+                    <h4>
+                        Weather layers
+                    </h4>
+                    A variety of maps are available including precipitation, clouds, pressure, temperature, wind, and many more.
+                </div>
+                <div style="float: left; width:20%;margin-left:4%">
+                    <h4>Daily map</h4>
+                    Global daily map is rendering in real time as satellite data become available to give you the whole picture of weather phenomena.
+                </div>
+            </div>
+        </center>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <center>
+        <h2 style="color:#d26c22; font-family:Oswald,sans-serif;font-size: 150%">Weather APIs for developers</h2>
+        Simple and fast APIs. Access to current weather, forecasts, maps and historical data in JSON, XML, and HTML formats. A variety of map layers are available including precipitation, clouds, pressure, temperature, wind, and many more.<br>
+        <button style="background:#D26c22;color:white;-webkit-border-radius: 5px;border: none; -moz-border-radius:5px;padding:1%"><b>Try Free APIs</b></button>
+    </center>
+
+    <iframe name="footer" src="@Url.Content("~/Content/ourproject/")weather_footer.html" hspace="0" width="100%" scrolling="no" height="1000px" style="bottom:0;" frameborder="0"></iframe>
+
+</body>
+</html>
+
+
+

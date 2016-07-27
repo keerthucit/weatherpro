@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "AfterLogin";
+}
+
+<h2></h2><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+@if (Session["LoggedID"] != null)
+{
+    <h1>
+        Welcome @Session["LoggedUsername"].ToString()
+    </h1>
+}
+else
+{
+    <h2>Login Unsuccessful!!!</h2>
+}
+@if (ViewBag.Error != null)
+{
+    <h3 style="color:red">@ViewBag.Error</h3>
+}
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+

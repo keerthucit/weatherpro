@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="view.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <title>city</title>
+    <script type="text/javascript">
+        window.onload = function(){
+        //Get submit button
+        var submitbutton = document.getElementById("tfq");
+        //Add listener to submit button
+        if(submitbutton.addEventListener){
+        submitbutton.addEventListener("click", function() {
+        if (submitbutton.value == 'Search your city'){//Customize this text string to whatever you want
+           submitbutton.value = '';
+        }
+       });
+      }
+     }
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("dropdown-menu").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+/*$(document).ready(function(){
+	$(".closebtn1").click(function(){
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+});
+
+});*/
+
+    </script>
+</head>
+<body class="body">
+    <header>
+        <nav class="fixed-nav-bar">
+            <div class="firstheader" style="background-color: #2a2a2a;">
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a id="top1" href="#"> <i class="fa fa-envelope"></i> Support Center</a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span class="topheader">
+                    <a id="top1" href="FindPage.html"> <i class="fa fa-search"></i>&nbsp Weather in your city</a>
+                    <a id="top1" href="/registers/login"> <i class="fa fa-sign-in"></i>&nbsp Sign In</a>
+                    <a id="top1" href="/registers/Create"> <i class="fa fa-arrow-circle-o-down"></i>&nbsp Sign Up</a>
+                </span>
+                <span class="form">
+                    <span class="switch-field">
+                        <input type="radio" id="switch_left" name="switch_2" value="yes" checked />
+                        <label for="switch_left">&#x2103;</label>
+
+                        <input type="radio" id="switch_right" name="switch_2" value="no" />
+                        <label for="switch_right">&#x2109;</label>
+                    </span>
+                </span>
+            </div>
+            <nav class="navbar">
+
+                <ul>
+                    <a href="home.html"><img style="width:40%;height: 15%;margin-left:25%;padding: 1.5% 0 0 0;" src="Logo.png" alt="Open Weather Map"></a>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp
+                    <li><a href="final.html">Weather</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">Maps &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Weather maps</a></li>
+                            <li><a href="#">Current satellite maps</a></li>
+                            <li><a href="#">Beautiful maps</a></li>
+                            <li><a href="#">Map Editor 2.0</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Stations</a></li>
+                    <li><a href="#">News</a></li>
+
+                    <li class="dropdown">
+                        <a href="#">About &#9662;</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About company</a></li>
+                            <li><a href="#">OWM Platform</a></li>
+                            <li><a href="#">Big Data Technology</a></li>
+                            <li><a href="#">Meteorological models</a></li>
+                            <li><a href="#">Data sources</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </nav>
+        <br><br><br><br><br><br>
+
+        <h2 style="color:#DA6C22; font-family:Times New Roman, serif;font-size: 200%">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <u>Weather in your City</u>
+        </h2>
+    </header>
+    <section>
+        <div id="tfheader">
+            <form id="tfnewsearch" method="get" action="http://www.google.com">
+                <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search your city"><input type="submit" value="Search" class="tfbutton2">
+            </form>
+            <div class="tfclear"></div>
+        </div>
+        <div class="col-sm-12">
+
+            <h3 style="margin-left: 12%">Search engine is very flexible. How it works:</h3>
+            <ol class="content" style="list-style-type: circle; list-style-position: inside; margin:0 15%;">
+                <li>
+                    Put the city's name or its part and get the list of the most proper cities in the world. Example - <b>Lon</b> or
+                    <b>Lond</b> or <b>London</b>. The more precise city name you put the more precise list you will get.
+                </li>
+
+                <li>
+                    To make it more precise put the city's name or its part, comma, the name of the county or 2-letter country	code.You will get all proper cities in chosen county. The order is important - the first is city name then comma then county. Example - <b>Lon, UK</b> or <b>Lon, GB</b> or <b>London, GB</b> or <b>Lon, England</b>.
+                </li>
+            </ol>
+        </div>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <iframe name="footer" src="weather_footer.html" hspace="0" width="100%" scrolling="no" height="700px" style="bottom:0;" frameborder="0"></iframe>
+        <footer>
+</body>
+</html>
+

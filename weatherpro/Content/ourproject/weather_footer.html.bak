@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>footer</title>
+  
+ </head>
+ <body>
+
+	<div>
+		         <footer style="background-color:#353432;height:450px;widht:100%;position:relative;">
+		           <div style="float:left;position:relative;width:45%;">
+			           <h3 style="color:#D26c22;"><u>Weather in your city</u></h3>
+				       <hr>
+				           <ul style="color:white;">
+					            <li><a href="FindPage.html">Find your city</a></li>
+					            <li><a href="final.html" style="color:#D26c22;">Weather maps</a></li>
+				           </ul>
+			
+		               <h3 style="color:#D26c22;"><u>Weather APIs</u></h3>
+				       <hr>
+				           <ul style="color:white;">
+					            <li><a href="#" style="color:#D26c22;">How to start</a></li>
+					            <li><a href="#" style="color:#D26c22;">Weather APIs for developers</a></li>
+					            <li><a href="#" style="color:#D26c22;">Current weather</a></li>
+					            <li><a href="#" style="color:#D26c22;">5 day/3 hour weather forecast</a></li>
+					            <li><a href="#" style="color:#D26c22;">16 day/daily weather forecast</a></li>
+					            <li><a href="#" style="color:#D26c22;">Hourly historical data</a></li>
+					            <li><a href="#" style="color:#D26c22;">Data from weather stations</a></li>
+					            <li><a href="#" style="color:#D26c22;">Examples of API use</a></li>
+				           </ul>
+			       </div>
+			       
+				   <div style="float:right;position:relative;width:45%;" >
+			 
+				       <h3 style="color:#D26c22;"><u>Map layers</u></h3>
+					   <hr>
+				           <ul style="color:white;">
+					            <li><a href="#" style="color:#D26c22;">Examples of OpenWeatherMap map layers</a></li>
+					            <li><a href="#" style="color:#D26c22;">How to create maps with array of weather data</a></li>
+					            <li><a href="#" style="color:#D26c22;">How to create maps with tile server</a></li>
+				           </ul>
+			
+				       <h3 style="color:#D26c22;"><u>What technologies we use</u></h3>
+					   <hr>
+				           <ul style="color:white;">
+					             <li><a href="#" style="color:#D26c22;">OpenWeatherMap technology</a></li>
+					             <li><a href="#" style="color:#D26c22;">Meteorological technology</a></li>
+					             <li><a href="#" style="color:#D26c22;">Meteorological data sources</a></li>
+				           </ul>
+				       <button style="background:#d9edf7;color:black"><b>Found a bug? Have a question of idea?<br> Welcome to <a style="color:black"><b>Support center<b></a></b></button>
+			       </div>
+				   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			       <div style="width:100%;float:bottom;position:relative;"><hr><center><h5 style="color:white;">© 2012-2016 OpenWeatherMap, Inc. About company | Privacy Policy | Terms of Service</h5></center></div>
+			</footer>
+	</div>
+ </body>
+</html>

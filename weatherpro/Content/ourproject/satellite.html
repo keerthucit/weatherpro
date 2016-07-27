@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+   <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+li {
+   float:left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #ffffff ;
+}
+}
+</style>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(45.434046,12.340284);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:18,
+  mapTypeId:google.maps.MapTypeId.HYBRID
+  };
+   
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+ <body>
+   <div id="menu">
+<ul>
+<li><a href="main.html">Main</a></li>
+<ul><li><a href="Daily.html">Daily</a></li>
+<li><a href="Hourly.html">Hourly</a></li>
+<li><a href="Chart.html">Chart</a></li>
+<li><a href="Map.html">Map</a></li>
+<li><a href="Satellite.html">Satellite</a></li>
+</ul>
+</div>
+<hr>
+<h3>Satellite imagery</h3>
+
+
+<body>
+
+<div id="googleMap" style="width:800px;height:380px;"></div>
+
+
+ </body>
+</html>

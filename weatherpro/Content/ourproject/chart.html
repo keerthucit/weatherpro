@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+li {
+   float:left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #ffffff ;
+}
+}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+
+      var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}, {x: 5, y: 17},{x: 6, y: 10}, {x: 7, y: 13}, {x: 8, y: 18}, {x: 9, y: 20}, {x: 10, y: 17}];   //dataPoints. 
+
+      var chart = new CanvasJS.Chart("chartContainer",{
+      	title :{
+      		text: "Temperature Chart"
+      	},
+      	axisX: {						
+      		title: "Temperature"
+      	},
+      	axisY: {						
+      		title: "Units"
+      	},
+      	data: [{
+      		type: "line",
+      		dataPoints : dps
+      	}]
+      });
+
+      chart.render();
+      var xVal = dps.length + 1;
+      var yVal = 15;	
+      var updateInterval = 1000;
+
+      var updateChart = function () {
+      	
+      	
+      	yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+      	dps.push({x: xVal,y: yVal});
+      	
+      	xVal++;
+      	if (dps.length >  10 )
+      	{
+      		dps.shift();				
+      	}
+
+      	chart.render();		
+
+	// update chart after specified time. 
+
+};
+
+setInterval(function(){updateChart()}, updateInterval); 
+}
+</script>
+<script type="text/javascript" src="canvasjs.min.js"></script>
+</head>
+ <body>
+  <div id="menu">
+<ul>
+<li><a href="main.html">Main</a></li>
+<ul><li><a href="Daily.html">Daily</a></li>
+<li><a href="Hourly.html">Hourly</a></li>
+<li><a href="Chart.html">Chart</a></li>
+<li><a href="Map.html">Map</a></li>
+<li><a href="Satellite.html">Satellite</a></li>
+</ul>
+</div>
+<hr>
+<div>
+<ul>
+<li><a href="chart.html">Temperature</a></li>
+<ul><li><a href="chart.html">Wind</a></li>
+<li><a href="chart.html">Precipitation</a></li>
+<li><a href="chart.html">Pressure</a></li>
+
+</ul>
+</div>
+<hr>
+ <div id="chartContainer" style="height: 300px; width: 80%;"></div>
+
+  
+ </body>
+</html>

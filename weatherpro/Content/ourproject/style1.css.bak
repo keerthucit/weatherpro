@@ -1,0 +1,244 @@
+
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+ 
+body{     
+position: relative;
+margin: 0;
+padding-bottom: 6rem;
+min-height: 100%;
+font-family: "Helvetica Neue", Arial, sans-serif;
+ }
+
+ header{
+background-color:white;
+color: white;
+ left: 0;
+ position: auto;
+}
+
+.navbar{
+display: inline: block;
+width: 100%;
+ background: #3b3b3b;
+ float: right;
+}
+
+img{
+height: 10%;
+width: 20%;
+float: left;
+margin-left: 3%;
+padding: 1% 5%;
+}
+
+  
+  a{      
+display: inline-block;
+padding: 1% 2%;
+color: white;
+font-size: 80%;
+text-decoration: none;
+ }
+
+  ul{
+padding: 0;
+list-style: none;
+ }
+
+ ul li{
+ display: inline-block;
+position: relative;
+text-align: left;
+ }
+
+ul li a{
+display: block;
+padding: 8px 25px;
+color: white;
+font-size: 100%;
+text-decoration: none;
+}
+
+ul li a:hover{
+background: #ff5c0f;
+}
+
+ul li ul.dropdown-menu{
+width: 100% !important;
+float: left;
+background: #8a8a8a;
+display: none;
+position: absolute;
+z-index: 999;
+}
+
+ul li ul.dropdown-menu li{
+color:black;
+display: block;}
+
+#tfheader{
+background-color:black;
+float:center;
+}
+
+#tfnewsearch{
+margin-left:40%;
+padding:0px;
+height: 50%;
+}
+
+.tftextinput2{
+margin: 0;
+padding: 5px 15px;
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+color:#666;
+border:1px solid #ff5c0f;
+border-radius: 15px 0 0 15px;
+}
+
+.tfbutton2 {
+margin: 0;
+padding: 5px 7px;
+font-family: Arial, Helvetica, sans-serif;
+font-size:14px;
+font-weight:bold;
+outline: none;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+color: white;
+border-right:0px;
+background: #ff5c0f;
+background: -webkit-gradient(linear, left top, left bottom, from(#ff5c0f), to(#ff5c0f));
+background: -moz-linear-gradient(top,  #ff5c0f,  #ff5c0f);
+border:1px solid #ff5c0f; 
+border-radius: 0 15px 15px 0;
+}
+
+.tfbutton2:hover {
+text-decoration: none;
+background: #df4800;
+background: -webkit-gradient(linear, left top, left bottom, from(#df4800), to(#df4800));
+background: -moz-linear-gradient(top,  #df4800,  #df4800);
+}
+
+.tfclear{
+clear:both;
+}
+
+/**form starts here**/
+h2{
+ background-color: #FEFFED;
+ padding: 30px 35px;
+ margin: -10px -50px;
+ text-align:center;
+ border-radius: 10px 10px 0 0;
+}
+ 
+hr{
+ margin: 10px -50px;
+ border: 0;
+ border-top: 1px solid #ccc;
+ margin-bottom: 40px;
+}
+ 
+div.container{
+ width: 600px;
+ height:450px;
+ margin:20px auto;
+ font-family: 'Raleway', sans-serif;
+}
+ 
+div.main{
+ width: 450px;
+ padding: 5px 25px 25px;
+ border: 1px solid green;
+ border-radius: 5px;
+ font-family: raleway;
+ float:center;
+ margin-top:5px;
+ margin-bottom: 50px;
+ height:350px;
+}
+ 
+.sidebar {
+    float: right;
+    width: 200px;
+    color:"orange";
+}
+
+
+input[type=text]{
+ width: 100%;
+ height: 25px;
+ padding: 2px;
+ margin-bottom: 3px;
+ margin-top: 1px;
+ border: 2px solid #ccc;
+ color: #4f4f4f;
+ font-size: 16px;
+ border-radius: 3px;
+}
+
+input[type=password]{
+ width: 50%;
+ height: 25px;
+ padding: 2px;
+ margin-bottom: 3px;
+ margin-top: 1px;
+ border: 2px solid #ccc;
+ color: #4f4f4f;
+ font-size: 16px;
+ border-radius: 3px;
+}
+
+label{
+ color: #464646;
+ text-shadow: 0 1px 0 #fff;
+ font-size: 14px;
+ font-weight: bold;
+}
+
+center{
+ font-size:32px;
+}
+
+.note{
+ color:red;
+}
+ 
+.valid{
+ color:green;
+}
+
+.back{
+ text-decoration: none;
+ border: 1px solid rgb(0, 143, 255);
+ background-color: rgb(0, 214, 255);
+ padding: 3px 20px;
+ border-radius: 2px;
+ color: black;
+}
+ 
+input[type=submit]{
+ font-size: 16px;
+ background-color:orange; 
+ border: 1px solid #e5a900;
+ color: black;
+ font-weight: bold;
+ cursor: pointer;
+ width: 40%;
+ border-radius: 5px;
+ padding: 10px 0;
+ outline:none;
+}
+ 
+input[type=button]:hover{
+ background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+
+.fugo{
+ float:right;
+}
+

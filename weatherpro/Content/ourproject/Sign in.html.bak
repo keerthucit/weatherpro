@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name ="viewport" content= "width=device-width , initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="view.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">  
+  <script>
+   $(function(){
+    $("ul li").click(function(){
+        $("ul li").removeClass("on");
+        $(this).addClass("on"); 
+    });
+});
+</script>  
+  <script type="text/javascript">
+        window.onload = function(){
+        //Get submit button
+        var submitbutton = document.getElementById("tfq");
+        //Add listener to submit button
+        if(submitbutton.addEventListener){
+        submitbutton.addEventListener("click", function() {
+        if (submitbutton.value == 'Search your city'){//Customize this text string to whatever you want
+           submitbutton.value = '';
+        }
+       });
+      }
+     }
+  </script>
+  <script type="text/javascript">
+        $(document).ready(function(){        
+        $(".dropdown").click(function(){
+            $('.dropdown-menu').toggleClass('visible');
+		  });
+        });
+        $(document).on("click", function(event){
+           var $trigger = $(".dropdown");
+           if($trigger !== event.target && !$trigger.has(event.target).length){
+            $(".dropdown-menu").slideUp("fast");
+        }            
+    });
+</script>
+ </head>
+ <body>
+   <header>
+   <nav class="fixed-nav-bar">
+	  <div class="firstheader" style="background-color: #2a2a2a;">	
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<a id="top1" href="#"> <i class="fa fa-envelope"></i> Support Center</a>  
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<span class="topheader">
+		 <a id="top1" href="FindPage.html"> <i class="fa fa-search"></i>&nbsp Weather in your city</a>		
+		 <a id="top1" href="Sign in.html"> <i class="fa fa-sign-in"></i>&nbsp Sign In</a>
+		 <a id="top1" href="3.html.html"> <i class="fa fa-arrow-circle-o-down"></i>&nbsp Sign Up</a>
+		</span>
+		<span class="form">
+			<span class="switch-field">      
+				 <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
+				 <label for="switch_left">&#x2103;</label>
+      
+				 <input type="radio" id="switch_right" name="switch_2" value="no" />
+				 <label for="switch_right">&#x2109;</label>
+		   </span>	
+         </span>
+      </div>
+	  <nav class="navbar" >	    	
+	    
+	    <ul>
+		 <a  href="weather_Main.html"><img style="width:40%;height: 15%;margin-left:25%;padding: 1.5% 0 0 0;" src="Logo.png" alt="Open Weather Map"></a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp
+		  <li><a href="final.html">Weather</a></li>
+
+		  <li class="dropdown">
+		   <a href="#">Maps &#9662;</a>
+		    <ul class="dropdown-menu">
+                <li><a href="#">Weather maps</a></li>
+                <li><a href="#">Current satellite maps</a></li>
+                <li><a href="#">Beautiful maps</a></li>
+                <li><a href="#">Map Editor 2.0</a></li>
+            </ul>
+		  </li> 
+
+		  <li><a href="#">API</a></li>
+		  <li><a href="#">Price</a></li>
+		  <li><a href="#">Partners</a></li>
+		  <li><a href="#">Stations</a></li>
+		  <li><a href="#">News</a></li>
+
+		  <li class="dropdown">
+		   <a href="#">About &#9662;</a>
+		    <ul class="dropdown-menu">
+                <li><a href="#">About company</a></li>
+                <li><a href="#">OWM Platform</a></li>
+                <li><a href="#">Big Data Technology</a></li>
+                <li><a href="#">Meteorological models</a></li>
+                <li><a href="#">Data sources</a></li>
+            </ul>
+		  </li>
+         </ul>
+      </nav>
+	</nav>
+	  </header>
+	  <br><br><br><br><br> <br> <br><br><br><br><br>
+	  <center><br>
+        <div class="container" style="width:500px;height:440px;position:relative;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,0.8)">
+             <h2><br>Sign In To Your Account</h2>
+					 
+				<hr>
+                  <form role="form">
+                     <div class="form-group">
+                           <label for="email"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:</label>
+                           <input type="email" class="form-control" id="email" placeholder="Enter email">
+                     </div>
+                           
+					 <div class="form-group">
+                           <label for="pwd"><br>Password:</label>
+                           <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                     </div>
+                           <br>
+				     <div class="checkbox">
+                           <label><input type="checkbox">Remember me</label>
+                     </div>
+                           <br>
+					 <button type="submit" class="btn btn-default" style="background-color:#C1631F; border-color:#9E511A; color:white;">Submit</button>
+
+					 <hr>
+				  </form>
+
+					 <p> Not registered? <a href="#" style="color:#C1631F;">Create an Account.</a></p>
+                     <p>Lost your password??<a href="#" style="color:#C1631F;">Click here to recover.</a></p>
+        </div>
+		</center>
+		<br><br>
+</div>
+	   <iframe  name="footer" src="weather_footer.html" hspace="0" width="100%" scrolling="no" height="1000px" style="bottom:0;" frameborder="0">
+	</iframe>
+		  
+		
+ </body>
+</html>

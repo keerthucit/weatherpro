@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="weatherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="place">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="25" />
+          <Property Name="coord_lon" Type="float" />
+          <Property Name="coord_lat" Type="float" />
+        </EntityType>
+        <EntityType Name="register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="float" />
+          <Property Name="address1" Type="varchar" MaxLength="50" />
+          <Property Name="address2" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="pincode" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'weather.dbo.stud' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="stud">
+          <Property Name="namr" Type="nchar" MaxLength="10" />
+          <Property Name="age" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'weather.dbo.wday' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wday">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" Nullable="false" />
+          <Property Name="maintemp_min" Type="float" />
+          <Property Name="maintemp_max" Type="float" />
+          <Property Name="sys_sunrise" Type="int" />
+          <Property Name="sys_sunset" Type="int" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="wthreeh">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" Nullable="false" />
+          <Property Name="wind_deg" Type="float" />
+          <Property Name="wind_speed" Type="float" />
+          <Property Name="weather_description" Type="text" />
+          <Property Name="rain_cmthreeh" Type="int" />
+          <Property Name="dat" Type="datetime" />
+          <Property Name="tim" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__wday__pid__2C3393D0">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="wday" Type="Self.wday" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="wday">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wthreeh__pid__2A4B4B5E">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="wthreeh" Type="Self.wthreeh" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="wthreeh">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="weatherModelStoreContainer">
+          <EntitySet Name="place" EntityType="Self.place" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="register" EntityType="Self.register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wday" EntityType="Self.wday" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wday].[pid] AS [pid], 
+    [wday].[maintemp_min] AS [maintemp_min], 
+    [wday].[maintemp_max] AS [maintemp_max], 
+    [wday].[sys_sunrise] AS [sys_sunrise], 
+    [wday].[sys_sunset] AS [sys_sunset], 
+    [wday].[date] AS [date]
+    FROM [dbo].[wday] AS [wday]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="wthreeh" EntityType="Self.wthreeh" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [wthreeh].[pid] AS [pid], 
+    [wthreeh].[wind_deg] AS [wind_deg], 
+    [wthreeh].[wind_speed] AS [wind_speed], 
+    [wthreeh].[weather_description] AS [weather_description], 
+    [wthreeh].[rain_cmthreeh] AS [rain_cmthreeh], 
+    [wthreeh].[dat] AS [dat], 
+    [wthreeh].[tim] AS [tim]
+    FROM [dbo].[wthreeh] AS [wthreeh]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__wday__pid__2C3393D0" Association="Self.FK__wday__pid__2C3393D0">
+            <End Role="place" EntitySet="place" />
+            <End Role="wday" EntitySet="wday" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wthreeh__pid__2A4B4B5E" Association="Self.FK__wthreeh__pid__2A4B4B5E">
+            <End Role="place" EntitySet="place" />
+            <End Role="wthreeh" EntitySet="wthreeh" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="weatherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="place">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="coord_lon" Type="Double" />
+          <Property Name="coord_lat" Type="Double" />
+          <NavigationProperty Name="wday" Relationship="Self.FK__wday__pid__2C3393D0" FromRole="place" ToRole="wday" />
+          <NavigationProperty Name="wthreeh" Relationship="Self.FK__wthreeh__pid__2A4B4B5E" FromRole="place" ToRole="wthreeh" />
+        </EntityType>
+        <EntityType Name="register">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="Double" />
+          <Property Name="address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pincode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="wday">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" />
+          <Property Name="maintemp_min" Type="Double" />
+          <Property Name="maintemp_max" Type="Double" />
+          <Property Name="sys_sunrise" Type="Int32" />
+          <Property Name="sys_sunset" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="place" Relationship="Self.FK__wday__pid__2C3393D0" FromRole="wday" ToRole="place" />
+        </EntityType>
+        <EntityType Name="wthreeh">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" />
+          <Property Name="wind_deg" Type="Double" />
+          <Property Name="wind_speed" Type="Double" />
+          <Property Name="weather_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="rain_cmthreeh" Type="Int32" />
+          <Property Name="dat" Type="DateTime" Precision="3" />
+          <Property Name="tim" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="place" Relationship="Self.FK__wthreeh__pid__2A4B4B5E" FromRole="wthreeh" ToRole="place" />
+        </EntityType>
+        <Association Name="FK__wday__pid__2C3393D0">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="wday" Type="Self.wday" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="wday">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wthreeh__pid__2A4B4B5E">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="wthreeh" Type="Self.wthreeh" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="wthreeh">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="weatherEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="places" EntityType="Self.place" />
+          <EntitySet Name="registers" EntityType="Self.register" />
+          <EntitySet Name="wdays" EntityType="Self.wday" />
+          <EntitySet Name="wthreehs" EntityType="Self.wthreeh" />
+          <AssociationSet Name="FK__wday__pid__2C3393D0" Association="Self.FK__wday__pid__2C3393D0">
+            <End Role="place" EntitySet="places" />
+            <End Role="wday" EntitySet="wdays" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wthreeh__pid__2A4B4B5E" Association="Self.FK__wthreeh__pid__2A4B4B5E">
+            <End Role="place" EntitySet="places" />
+            <End Role="wthreeh" EntitySet="wthreehs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="weatherModelStoreContainer" CdmEntityContainer="weatherEntities">
+          <EntitySetMapping Name="places">
+            <EntityTypeMapping TypeName="weatherModel.place">
+              <MappingFragment StoreEntitySet="place">
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="coord_lon" ColumnName="coord_lon" />
+                <ScalarProperty Name="coord_lat" ColumnName="coord_lat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registers">
+            <EntityTypeMapping TypeName="weatherModel.register">
+              <MappingFragment StoreEntitySet="register">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wdays">
+            <EntityTypeMapping TypeName="weatherModel.wday">
+              <MappingFragment StoreEntitySet="wday">
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="maintemp_min" ColumnName="maintemp_min" />
+                <ScalarProperty Name="maintemp_max" ColumnName="maintemp_max" />
+                <ScalarProperty Name="sys_sunrise" ColumnName="sys_sunrise" />
+                <ScalarProperty Name="sys_sunset" ColumnName="sys_sunset" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wthreehs">
+            <EntityTypeMapping TypeName="weatherModel.wthreeh">
+              <MappingFragment StoreEntitySet="wthreeh">
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="wind_deg" ColumnName="wind_deg" />
+                <ScalarProperty Name="wind_speed" ColumnName="wind_speed" />
+                <ScalarProperty Name="weather_description" ColumnName="weather_description" />
+                <ScalarProperty Name="rain_cmthreeh" ColumnName="rain_cmthreeh" />
+                <ScalarProperty Name="dat" ColumnName="dat" />
+                <ScalarProperty Name="tim" ColumnName="tim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

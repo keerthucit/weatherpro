@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+li {
+   float:left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #bbbbbb;
+}
+
+}
+div#chartContainer
+{
+margin-top:6%;
+}
+#img
+{
+margin-left:10%;
+}
+</style>
+   
+ <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+    
+      title:{
+      text: "Temperature chart"
+      },
+	   
+       data: [
+      {        
+        type: "spline",
+        
+        dataPoints: [
+        { x: new Date(2015, 00, 1), y: 87.84},
+        { x: new Date(2015, 01, 1), y: 83.26 },
+        { x: new Date(2015, 02, 1), y: 89.66 },
+        { x: new Date(2015, 03, 1), y: 56.32 },
+        { x: new Date(2015, 04, 1), y: 89.59 },
+        { x: new Date(2015, 05, 1), y: 81.23},
+        { x: new Date(2015, 06, 1), y: 43.96 },
+        { x: new Date(2015, 07, 1), y: 86.77 },
+        { x: new Date(2015, 08, 1), y: 82.26 },
+        { x: new Date(2015, 09, 1), y: 88.88 },
+        { x: new Date(2015, 10, 1), y: 36.80 },
+        { x: new Date(2015, 11, 1), y: 80.29 }        
+        ]
+      }       
+        
+      ]
+    });
+
+    chart.render();
+  }
+  </script>
+  <script type="text/javascript" src="canvasjs.min.js"></script></head>
+ <body>
+ <div id="menu">
+<ul>
+<li><a class="active" href="main.html">Main</a></li>
+<ul><li><a href="Daily.html">Daily</a></li>
+<li><a href="Hourly.html">Hourly</a></li>
+<li><a href="Chart.html">Chart</a></li>
+<li><a href="Map.html">Map</a></li>
+<li><a href="Satellite.html">Satellite</a></li>
+</ul>
+</div>
+<hr>
+<h3>Next Hours</h3>
+   <div id="chartContainer" style="height: 300px; width: 80%;">
+  </div>
+  <h3>Next Days</h3>
+   <div id="img">
+ <img src="foot.png"/>
+ <img src="data.png"/>
+ </div>
+ </body>
+</html>

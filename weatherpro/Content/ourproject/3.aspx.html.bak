@@ -1,0 +1,98 @@
+<!doctype html>
+<head>
+  <title>Third</title>
+  <link type="text/css" href="style1.css" rel="stylesheet">
+  <script src="login.js"></script>
+  <script src="register.js"></script>
+  <style> 
+  div {<form method="post" action="">
+	
+  </form>
+  width:40%;
+}
+  </style>
+ </head>
+ <!--<iframe name="thirdframe" src="insert.html" hspace="0" width="100%" scrolling="no" height="150px" frameborder="1" style="float:right"></iframe>-->
+<div class="firstheader" style="background-color: #2a2a2a;">	
+<a href="#">Email Us</a>
+<span class="topheader">
+<a href="#"> Weather in your city</a>	
+<a href="#"> Sign In</a>
+<a href="#"></i> Sign Up</a>
+<!--<div id="tfheader">
+<form id="tfnewsearch" method="get" action="http://www.google.com">
+       <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search your city"><input type="submit" value="Search" class="tfbutton2">
+</form>
+<div class="tfclear"></div>
+</div>-->
+</span>
+<label onclick="set_units()">
+ <span>&nbsp; °C &nbsp;</span>
+ <span>&nbsp; °F &nbsp;</span>
+       </label> 
+     </div>
+ <nav class="navbar">
+  <img src="E:\assisment\weather.png" alt="Open Weather Map">
+   <ul>
+ <li><a href="#">Weather</a></li>
+ <li class="dropdown"><a href="#">Maps</a>
+   <ul class="dropdown-menu">
+               <li><a href="#">Weather maps</a></li>
+               <li><a href="#">Current satellite maps</a></li>
+               <li><a href="#">Beautiful maps</a></li>
+               <li><a href="#">Map Editor 2.0</a></li>
+           </ul>
+ </li> 
+<li><a href="#">API</a></li>
+ <li><a href="#">Price</a></li>
+ <li><a href="#">Partners</a></li>
+ <li><a href="#">Stations</a></li>
+ <li><a href="#">News</a></li>
+
+ <li class="dropdown"><a href="#">About</a>
+   <ul class="dropdown-menu">
+               <li><a href="#">About company</a></li>
+               <li><a href="#">OWM Platform</a></li>
+               <li><a href="#">Big Data Technology</a></li>
+               <li><a href="#">Meteorological models</a></li>
+               <li><a href="#">Data sources</a></li>
+           </ul>
+ </li>
+ </nav>
+ <!--<body style="background:white;">-->
+ <div class ="sidebar">
+ <a href="#">Home/</a>
+ <a href="#">Sign up</a>
+</div>
+<div class ="sidebar1">
+ <h1>Sign Up</h1>
+ 
+ <div class="container">
+<div class="main">
+<br>
+<h3 style="color:black;">Create new Account </h3>
+<form id="form_id" method="post" name="myform">
+<label></label>
+<input type="text" placeholder="Username:" name="email" id="email"/><br><br>
+<label></label>
+<input type="text"  placeholder="Enter Email:" name="username1" id="username1"/><br><br>
+<label></label>
+<div  style="float:left; padding-right:2px; width:48%;">
+ <label for="Password"></label>
+ <input type="text" name="pass" placeholder="Password:" id="password"/>
+  </div>
+  <div style="float:right; padding-left:2px; width:48%;">
+  <label for="lname"></label>
+ <input type="text" name="lname" placeholder="Repeat Password:" id="lname"/>
+ </div><br><br>
+<input type="checkbox" name="terms" value="terms">I agree to the Terms of Service and Privacy Policy<br><br>
+<input type="button" value="Create Account" id="submit" onclick="validate()"/>
+</form>
+</div>
+</div>
+<br>
+<br>
+<div class="bottom">
+<iframe name="fourthframe" src="bottom.html" hspace="0" width="100%" scrolling="no" height="450px" frameborder="1" style="float:right"></iframe>
+ </body>
+</html>

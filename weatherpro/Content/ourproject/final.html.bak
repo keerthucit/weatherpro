@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <link rel="stylesheet" type="text/css" href="view.css">
+	<meta charset="UTF-8">
+	 <meta name ="viewport" content= "width=device-width , initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<title>index</title>
+	 <script type="text/javascript">
+        window.onload = function(){
+        //Get submit button
+        var submitbutton = document.getElementById("tfq");
+        //Add listener to submit button
+        if(submitbutton.addEventListener){
+        submitbutton.addEventListener("click", function() {
+        if (submitbutton.value == 'Search your city'){//Customize this text string to whatever you want
+           submitbutton.value = '';
+        }
+       });
+      }
+     }
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("dropdown-menu").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+/*$(document).ready(function(){
+	$(".closebtn1").click(function(){
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+});
+
+});*/
+
+  </script>
+ </head>
+ <body class="body">
+ <header>
+<nav class="fixed-nav-bar">
+	  <div class="firstheader" style="background-color: #2a2a2a;">	
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<a id="top1" href="#"> <i class="fa fa-envelope"></i> Support Center</a>  
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<span class="topheader">
+		 <a id="top1" href="FindPage.html"> <i class="fa fa-search"></i>&nbsp Weather in your city</a>		
+		 <a id="top1" href="Sign in.html"> <i class="fa fa-sign-in"></i>&nbsp Sign In</a>
+		 <a id="top1" href="3.html.html"> <i class="fa fa-arrow-circle-o-down"></i>&nbsp Sign Up</a>
+		</span>
+		<span class="form">
+			<span class="switch-field">      
+				 <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
+				 <label for="switch_left">&#x2103;</label>
+      
+				 <input type="radio" id="switch_right" name="switch_2" value="no" />
+				 <label for="switch_right">&#x2109;</label>
+		   </span>	
+         </span>
+      </div>
+	  <nav class="navbar">	    	
+	    
+	    <ul>
+		 <a  href="home.html"><img style="width:40%;height: 15%;margin-left:25%;padding: 1.5% 0 0 0;" src="Logo.png" alt="Open Weather Map"></a>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp
+		  <li><a href="final.html">Weather</a></li>
+
+		  <li class="dropdown">
+		   <a href="#">Maps &#9662;</a>
+		    <ul class="dropdown-menu">
+                <li><a href="#">Weather maps</a></li>
+                <li><a href="#">Current satellite maps</a></li>
+                <li><a href="#">Beautiful maps</a></li>
+                <li><a href="#">Map Editor 2.0</a></li>
+            </ul>
+		  </li> 
+
+		  <li><a href="#">API</a></li>
+		  <li><a href="#">Price</a></li>
+		  <li><a href="#">Partners</a></li>
+		  <li><a href="#">Stations</a></li>
+		  <li><a href="#">News</a></li>
+
+		  <li class="dropdown">
+		   <a href="#">About &#9662;</a>
+		    <ul class="dropdown-menu">
+                <li><a href="#">About company</a></li>
+                <li><a href="#">OWM Platform</a></li>
+                <li><a href="#">Big Data Technology</a></li>
+                <li><a href="#">Meteorological models</a></li>
+                <li><a href="#">Data sources</a></li>
+            </ul>
+		  </li>
+         </ul>
+      </nav>
+	  </nav>
+   </header>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div><br><br><br><br>
+	  <h2 style="color:#505065; font-family:Times New Roman, serif;font-size: 120%">
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Weather in your City</h2><hr>
+
+  
+		 <div class="tfclear"></div>
+	   </div>
+
+ 
+   
+   <div class="wrapper">
+   <frameset>
+<iframe  name="aside" src="aside.html" width="30%" scrolling="no" height="500px" style="margin-left: 15%;" frameborder="0">
+</iframe>
+<iframe name="html" src="main.html" width="50%" scrolling="no" height="1280px" frameborder="0" style="float:right;margin-right: 5%;">
+	</iframe>
+	
+
+	
+	<iframe  name="footer" src="weather_footer.html" hspace="0" width="100%" scrolling="no" height="700px" style="bottom:0;" frameborder="0">
+	</iframe>
+	</frameset>
+	</div>
+
+
+
+ </body>
+</html>

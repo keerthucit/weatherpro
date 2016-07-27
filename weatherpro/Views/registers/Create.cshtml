@@ -1,0 +1,145 @@
+﻿@model weatherpro.Models.DB.register
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Create";
+}
+  <br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+
+        <h2>SignUp</h2>
+           <br /><br />
+        <center>
+
+            <div class="container" style="width:600px;height:700px;position:relative;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,0.8)">
+
+                <br /><br />
+                
+                    <form class="form-horizontal" role="form">
+                        <h2>Create new account</h2><br />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.id, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.id, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.id, "", new { @class = "text-danger" })
+                                
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" }) &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.address1, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.address1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.address1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.address2, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.address2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.address2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.city, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.state, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.state, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.country, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.country, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.LabelFor(model => model.pincode, htmlAttributes: new { @class = "control-label col-md-2" })&nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp;
+                                @Html.TextBoxFor(model => model.pincode, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.pincode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br><br />
+                        <div class="checkbox">
+                            <label><input type="checkbox">I agree to the Terms of Service and Privacy Policy</label>
+                        </div><br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create Account" class="btn btn-default" style="background-color:darkorange;" />
+                            </div>
+                            <br />
+                        </div>
+                    </form>
+                </div>
+          
+        </center>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<br /><br />

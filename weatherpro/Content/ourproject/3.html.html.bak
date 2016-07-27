@@ -1,0 +1,154 @@
+<!doctype html>
+<head>
+  <title>Third</title>
+  <link type="text/css" href="style1.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--<script src="validation.js"></script>-->
+  <style> 
+  div {<form method="post" action="">
+	
+  </form>
+  width:40%;
+}
+  </style>
+ </head>
+ <!--<iframe name="thirdframe" src="insert.html" hspace="0" width="100%" scrolling="no" height="150px" frameborder="1" style="float:right"></iframe>-->
+<div class="firstheader" style="background-color: #2a2a2a;">	
+<a href="#">Email Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="topheader">
+<a href="FindPage.html"> Weather in your city</a>&nbsp;
+<a href="Sign in.html"> Sign In</a>&nbsp;
+<a href="3.html.html"></i> Sign Up</a>&nbsp;
+<!--<div id="tfheader">
+<form id="tfnewsearch" method="get" action="http://www.google.com">
+       <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="Search your city"><input type="submit" value="Search" class="tfbutton2">
+</form>
+<div class="tfclear"></div>
+</div>-->
+</span>
+<label onclick="set_units()">
+ <span>&nbsp; °C &nbsp;</span>
+ <span>&nbsp; °F &nbsp;</span>
+       </label> 
+     </div>
+ <nav class="navbar">
+  
+   <ul>
+    <a  href="weather_Main.html"><img style="width:40%;height: 15%;margin-left:25%;padding: 1.5% 0 0 0;" src="Logo.png" alt="Open Weather Map"></a>
+ <li><a href="final.html">Weather</a></li>
+ <li class="dropdown"><a href="#">Maps</a>
+   <ul class="dropdown-menu">
+               <li><a href="#">Weather maps</a></li>
+               <li><a href="#">Current satellite maps</a></li>
+               <li><a href="#">Beautiful maps</a></li>
+               <li><a href="#">Map Editor 2.0</a></li>
+           </ul>
+ </li> 
+<li><a href="#">API</a></li>
+ <li><a href="#">Price</a></li>
+ <li><a href="#">Partners</a></li>
+ <li><a href="#">Stations</a></li>
+ <li><a href="#">News</a></li>
+
+ <li class="dropdown"><a href="#">About</a>
+   <ul class="dropdown-menu">
+               <li><a href="#">About company</a></li>
+               <li><a href="#">OWM Platform</a></li>
+               <li><a href="#">Big Data Technology</a></li>
+               <li><a href="#">Meteorological models</a></li>
+               <li><a href="#">Data sources</a></li>
+           </ul>
+ </li>
+ </nav>
+ <body style="background:white;">
+ <div class ="sidebar">
+ <a href="#">Home/</a>
+ <a href="#">Sign up</a>
+</div>
+<div class ="sidebar1">
+ <h1>Sign Up</h1>
+<div class="container">
+<div class="main">
+<br>
+<form action="#" name="myForm" onsubmit="return(validate());">
+<h3 style="color:black;">Create new Account </h3>
+<form id="form_id" method="post" name="myform">
+<label></label>
+<input type="text" placeholder="Username:" name="Username1"  id="username"/><br><br>
+<label></label>
+<input type="email"  name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required   placeholder="Enter Email:" /><br><br>
+<label></label>
+<div style="float:left; padding-right:2px; width:48%;">
+ <label for="Password"></label>
+ <input type="password" name="Password" placeholder="Password:" id="pass1"/>
+  </div>
+  <div style="float:right; padding-left:2px; width:48%;">
+  <label for="lname"></label>
+ <input  type="text" name="Repeat Password" placeholder="Repeat Password:" id="pass2"/>
+ </div><br><br><br>
+<input type="checkbox" name="terms" value="terms">I agree to the Terms of Service and Privacy Policy<br><br>
+<input type="submit" value="Create Account" id="submit" onclick="javascript:validate()"/>
+</form>
+<script>
+    function myFunction() {
+        var pass1 = document.getElementById("pass1").value;
+        var pass2 = document.getElementById("pass2").value;
+        if (pass1 != pass2) {
+            //alert("Passwords Do not match");
+            document.getElementById("pass1");
+            document.getElementById("pass2");
+        }
+        else {
+            alert("Passwords Match!!!");
+        }
+    }
+</script>
+</div>
+</div>
+<br>
+<br>
+<!--<div>
+ <footer style="background-color:#353432;height:450px;widht:100%;position:relative;">
+ <div style="float:left;position:relative;width:45%;">
+ <h3 style="color:#D26c22;"><u>Weather in your city</u></h3>
+  <hr>
+  <ul style="color:white;">
+  <li><a href="#" style="color:#D26c22;">Find your city</a></li>
+  <li><a href="#" style="color:#D26c22;">Weather maps</a></li>
+  </ul>
+<h3 style="color:#D26c22;"><u>Weather APIs</u></h3>
+ <hr>
+ <ul style="color:white;">
+ <li><a href="#" style="color:#D26c22;">How to start</a></li>
+ <li><a href="#" style="color:#D26c22;">Weather APIs for developers</a></li>
+ <li><a href="#" style="color:#D26c22;">Current weather</a></li>
+ <li><a href="#" style="color:#D26c22;">5 day/3 hour weather forecast</a></li>
+ <li><a href="#" style="color:#D26c22;">16 day/daily weather forecast</a></li>
+ <li><a href="#" style="color:#D26c22;">Hourly historical data</a></li>
+ <li><a href="#" style="color:#D26c22;">Data from weather stations</a></li>
+ <li><a href="#" style="color:#D26c22;">Examples of API use</a></li>
+  </ul>
+  </div>
+  <div style="float:right;position:relative;width:45%;" >
+  <h3 style="color:#D26c22;"><u>Map layers</u></h3>
+  <hr>
+  <ul style="color:white;">
+  <li><a href="#" style="color:#D26c22;">Examples of OpenWeatherMap map layers</a></li>
+  <li><a href="#" style="color:#D26c22;">How to create maps with array of weather data</a></li>
+  <li><a href="#" style="color:#D26c22;">How to create maps with tile server</a></li>
+  </ul>
+  <h3 style="color:#D26c22;"><u>What technologies we use</u></h3>
+  <hr>
+  <ul style="color:white;">
+  <li><a href="#" style="color:#D26c22;">OpenWeatherMap technology</a></li>
+  <li><a href="#" style="color:#D26c22;">Meteorological technology</a></li>
+   <li><a href="#" style="color:#D26c22;">Meteorological data sources</a></li>
+   </ul>
+  <button style="background:#d9edf7;color:black"><b>Found a bug? Have a question of idea?<br> Welcome to <a style="color:black"><b>Support center<b></a></b></button>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+<iframe  name="footer" src="weather_footer.html" hspace="0" width="100%" scrolling="no" height="1000px" style="bottom:0;" frameborder="0">
+	</iframe>
+
+ </body>
+</html>
