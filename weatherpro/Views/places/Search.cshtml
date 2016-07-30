@@ -1,0 +1,79 @@
+﻿@model weatherpro.Models.DB.place
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2 style="color:#DA6C22; font-family:Times New Roman, serif;font-size: 200%">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <u>Weather in your City</u>
+</h2>
+    </header>
+<section>
+    <div id="tfheader">
+        <form id="tfnewsearch" method="get" action="@Url.Action("Search","places")">
+            <input type="text" id="tfq" class="tftextinput2" name="city" size="21" maxlength="120" value="@Html.DisplayFor(model => model.city)">
+            <input type="submit" value="Search" class="tfbutton2">
+        </form>
+        <br />
+        @*<form id="tf1newsearch" method="get" action="@Url.Action("Create","favourites")">
+        <div>
+            <input type="submit" value="Add City as Favourite" style="background-color:darkorange;" />
+        </div>
+        </form>*@
+     
+
+        <div class="tfclear"></div>
+    </div>
+    <h2>@Session["LoggedCityname"]
+    <img src="@Url.Content("~/Content/ourproject/")search.png"></h2>
+    <table class="table">
+      <tr>
+      
+          <td>
+              @Html.DisplayFor(model => model.coord_lon)
+          </td>
+          <td>
+              @Html.DisplayFor(model => model.coord_lat)
+          </td>
+      </tr>
+
+ @*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coord_lon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coord_lat)
+        </td>
+        </tr>
+        }*@
+
+</table>
+
+    <div class="col-sm-12">
+
+        <h3 style="margin-left: 12%">Search engine is very flexible. How it works:</h3>
+        <ol class="content" style="list-style-type: circle; list-style-position: inside; margin:0 15%;">
+            <li>
+                Put the city's name or its part and get the list of the most proper cities in the world. Example - <b>Lon</b> or
+                <b>Lond</b> or <b>London</b>. The more precise city name you put the more precise list you will get.
+            </li>
+
+            <li>
+                To make it more precise put the city's name or its part, comma, the name of the county or 2-letter country	code.You will get all proper cities in chosen county. The order is important - the first is city name then comma then county. Example - <b>Lon, UK</b> or <b>Lon, GB</b> or <b>London, GB</b> or <b>Lon, England</b>.
+            </li>
+        </ol>
+    </div>
+</section>

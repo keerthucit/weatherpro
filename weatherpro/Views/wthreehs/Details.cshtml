@@ -1,0 +1,75 @@
+﻿@model weatherpro.Models.DB.wthreeh
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>wthreeh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.wind_deg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wind_deg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wind_speed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wind_speed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weather_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weather_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rain_cmthreeh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rain_cmthreeh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.place.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.place.city)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

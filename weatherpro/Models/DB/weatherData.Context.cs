@@ -13,10 +13,10 @@ namespace weatherpro.Models.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class weatherEntities : DbContext
+    public partial class weatherfavEntities : DbContext
     {
-        public weatherEntities()
-            : base("name=weatherEntities")
+        public weatherfavEntities()
+            : base("name=weatherfavEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace weatherpro.Models.DB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<favourite> favourites { get; set; }
         public virtual DbSet<place> places { get; set; }
         public virtual DbSet<register> registers { get; set; }
         public virtual DbSet<wday> wdays { get; set; }

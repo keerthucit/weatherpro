@@ -13,7 +13,7 @@ namespace weatherpro.Controllers
 {
     public class registersController : Controller
     {
-        private weatherEntities db = new weatherEntities();
+        private weatherfavEntities db = new weatherfavEntities();
 
         public ActionResult home()
         {
@@ -151,12 +151,12 @@ namespace weatherpro.Controllers
              // this action is for handle post (login)
                 if (ModelState.IsValid) // this is check validity
                 {
-                    using (weatherEntities dc = new weatherEntities())
+                    using (weatherfavEntities dc = new weatherfavEntities())
                     {
                         var v = dc.registers.Where(a => a.username.Equals(u.username) && a.password.Equals(u.password)).FirstOrDefault();
                         if (v != null)
                         {
-                            Session["LoggedID"] = v.id.ToString();
+                            Session["LoggedID"] = v.u_id.ToString();
                             Session["LoggedUsername"] = v.username.ToString();
                             return RedirectToAction("AfterLogin");
                     }
@@ -170,17 +170,27 @@ namespace weatherpro.Controllers
             return View(u);
 
         }
-        public ActionResult AfterLogin()
+        public ActionResult AfterLogin(string city)
         {
-            if (Session["LoggedID"] != null)
+            place u = new place();
+
+            using (weatherfavEntities dc = new weatherfavEntities())
             {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("home");
+                var v = dc.places.Where(a => a.city.Equals(city)).FirstOrDefault();
+
+                if (v != null)
+                {
+                    Session["LoggedID"] = v.pid.ToString();
+                    Session["LoggedCityname"] = v.city.ToString();
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "invalid entry";
+                }
+                return View(v);
             }
         }
+       
 
     }
 }

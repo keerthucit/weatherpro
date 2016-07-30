@@ -14,7 +14,13 @@ namespace weatherpro.Models.DB
     
     public partial class register
     {
-        public int id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public register()
+        {
+            this.favourites = new HashSet<favourite>();
+        }
+    
+        public int u_id { get; set; }
         public string username { get; set; }
         public string email { get; set; }
         public string password { get; set; }
@@ -25,5 +31,8 @@ namespace weatherpro.Models.DB
         public string state { get; set; }
         public string country { get; set; }
         public Nullable<int> pincode { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<favourite> favourites { get; set; }
     }
 }

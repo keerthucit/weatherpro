@@ -4,7 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="weatherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="weatherfavModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="favourite">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pid" Type="int" Nullable="false" />
+          <Property Name="u_id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="place">
           <Key>
             <PropertyRef Name="pid" />
@@ -16,9 +24,9 @@
         </EntityType>
         <EntityType Name="register">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="u_id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="20" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="password" Type="varchar" MaxLength="50" />
@@ -31,13 +39,7 @@
           <Property Name="pincode" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'weather.dbo.stud' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="stud">
-          <Property Name="namr" Type="nchar" MaxLength="10" />
-          <Property Name="age" Type="nchar" MaxLength="10" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'weather.dbo.wday' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'weatherfav.dbo.wday' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="wday">
           <Key>
             <PropertyRef Name="pid" />
@@ -50,7 +52,7 @@ warning 6002: The table/view 'weather.dbo.wday' does not have a primary key defi
           <Property Name="date" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'weatherfav.dbo.wthreeh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="wthreeh">
           <Key>
             <PropertyRef Name="pid" />
@@ -63,7 +65,31 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
           <Property Name="dat" Type="datetime" />
           <Property Name="tim" Type="datetime" />
         </EntityType>
-        <Association Name="FK__wday__pid__2C3393D0">
+        <Association Name="FK__favourite__pid__145C0A3F">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="favourite" Type="Self.favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="favourite">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__favourite__u_id__15502E78">
+          <End Role="register" Type="Self.register" Multiplicity="1" />
+          <End Role="favourite" Type="Self.favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="register">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="favourite">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wday__pid__173876EA">
           <End Role="place" Type="Self.place" Multiplicity="1" />
           <End Role="wday" Type="Self.wday" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -75,7 +101,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wthreeh__pid__2A4B4B5E">
+        <Association Name="FK__wthreeh__pid__1920BF5C">
           <End Role="place" Type="Self.place" Multiplicity="1" />
           <End Role="wthreeh" Type="Self.wthreeh" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -87,7 +113,8 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="weatherModelStoreContainer">
+        <EntityContainer Name="weatherfavModelStoreContainer">
+          <EntitySet Name="favourite" EntityType="Self.favourite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="place" EntityType="Self.place" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="register" EntityType="Self.register" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="wday" EntityType="Self.wday" store:Type="Tables" store:Schema="dbo">
@@ -111,11 +138,19 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
     [wthreeh].[tim] AS [tim]
     FROM [dbo].[wthreeh] AS [wthreeh]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__wday__pid__2C3393D0" Association="Self.FK__wday__pid__2C3393D0">
+          <AssociationSet Name="FK__favourite__pid__145C0A3F" Association="Self.FK__favourite__pid__145C0A3F">
+            <End Role="place" EntitySet="place" />
+            <End Role="favourite" EntitySet="favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__favourite__u_id__15502E78" Association="Self.FK__favourite__u_id__15502E78">
+            <End Role="register" EntitySet="register" />
+            <End Role="favourite" EntitySet="favourite" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wday__pid__173876EA" Association="Self.FK__wday__pid__173876EA">
             <End Role="place" EntitySet="place" />
             <End Role="wday" EntitySet="wday" />
           </AssociationSet>
-          <AssociationSet Name="FK__wthreeh__pid__2A4B4B5E" Association="Self.FK__wthreeh__pid__2A4B4B5E">
+          <AssociationSet Name="FK__wthreeh__pid__1920BF5C" Association="Self.FK__wthreeh__pid__1920BF5C">
             <End Role="place" EntitySet="place" />
             <End Role="wthreeh" EntitySet="wthreeh" />
           </AssociationSet>
@@ -124,7 +159,17 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="weatherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="weatherfavModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="favourite">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="Int32" Nullable="false" />
+          <Property Name="u_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="place" Relationship="Self.FK__favourite__pid__145C0A3F" FromRole="favourite" ToRole="place" />
+          <NavigationProperty Name="register" Relationship="Self.FK__favourite__u_id__15502E78" FromRole="favourite" ToRole="register" />
+        </EntityType>
         <EntityType Name="place">
           <Key>
             <PropertyRef Name="pid" />
@@ -133,14 +178,15 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
           <Property Name="city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="coord_lon" Type="Double" />
           <Property Name="coord_lat" Type="Double" />
-          <NavigationProperty Name="wday" Relationship="Self.FK__wday__pid__2C3393D0" FromRole="place" ToRole="wday" />
-          <NavigationProperty Name="wthreeh" Relationship="Self.FK__wthreeh__pid__2A4B4B5E" FromRole="place" ToRole="wthreeh" />
+          <NavigationProperty Name="favourites" Relationship="Self.FK__favourite__pid__145C0A3F" FromRole="place" ToRole="favourite" />
+          <NavigationProperty Name="wday" Relationship="Self.FK__wday__pid__173876EA" FromRole="place" ToRole="wday" />
+          <NavigationProperty Name="wthreeh" Relationship="Self.FK__wthreeh__pid__1920BF5C" FromRole="place" ToRole="wthreeh" />
         </EntityType>
         <EntityType Name="register">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="u_id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="u_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -151,6 +197,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
           <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="pincode" Type="Int32" />
+          <NavigationProperty Name="favourites" Relationship="Self.FK__favourite__u_id__15502E78" FromRole="register" ToRole="favourite" />
         </EntityType>
         <EntityType Name="wday">
           <Key>
@@ -162,7 +209,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
           <Property Name="sys_sunrise" Type="Int32" />
           <Property Name="sys_sunset" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="place" Relationship="Self.FK__wday__pid__2C3393D0" FromRole="wday" ToRole="place" />
+          <NavigationProperty Name="place" Relationship="Self.FK__wday__pid__173876EA" FromRole="wday" ToRole="place" />
         </EntityType>
         <EntityType Name="wthreeh">
           <Key>
@@ -175,9 +222,33 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
           <Property Name="rain_cmthreeh" Type="Int32" />
           <Property Name="dat" Type="DateTime" Precision="3" />
           <Property Name="tim" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="place" Relationship="Self.FK__wthreeh__pid__2A4B4B5E" FromRole="wthreeh" ToRole="place" />
+          <NavigationProperty Name="place" Relationship="Self.FK__wthreeh__pid__1920BF5C" FromRole="wthreeh" ToRole="place" />
         </EntityType>
-        <Association Name="FK__wday__pid__2C3393D0">
+        <Association Name="FK__favourite__pid__145C0A3F">
+          <End Role="place" Type="Self.place" Multiplicity="1" />
+          <End Role="favourite" Type="Self.favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="place">
+              <PropertyRef Name="pid" />
+            </Principal>
+            <Dependent Role="favourite">
+              <PropertyRef Name="pid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__favourite__u_id__15502E78">
+          <End Role="register" Type="Self.register" Multiplicity="1" />
+          <End Role="favourite" Type="Self.favourite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="register">
+              <PropertyRef Name="u_id" />
+            </Principal>
+            <Dependent Role="favourite">
+              <PropertyRef Name="u_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__wday__pid__173876EA">
           <End Role="place" Type="Self.place" Multiplicity="1" />
           <End Role="wday" Type="Self.wday" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -189,7 +260,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wthreeh__pid__2A4B4B5E">
+        <Association Name="FK__wthreeh__pid__1920BF5C">
           <End Role="place" Type="Self.place" Multiplicity="1" />
           <End Role="wthreeh" Type="Self.wthreeh" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -201,16 +272,25 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="weatherEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="weatherfavEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="favourites" EntityType="Self.favourite" />
           <EntitySet Name="places" EntityType="Self.place" />
           <EntitySet Name="registers" EntityType="Self.register" />
           <EntitySet Name="wdays" EntityType="Self.wday" />
           <EntitySet Name="wthreehs" EntityType="Self.wthreeh" />
-          <AssociationSet Name="FK__wday__pid__2C3393D0" Association="Self.FK__wday__pid__2C3393D0">
+          <AssociationSet Name="FK__favourite__pid__145C0A3F" Association="Self.FK__favourite__pid__145C0A3F">
+            <End Role="place" EntitySet="places" />
+            <End Role="favourite" EntitySet="favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__favourite__u_id__15502E78" Association="Self.FK__favourite__u_id__15502E78">
+            <End Role="register" EntitySet="registers" />
+            <End Role="favourite" EntitySet="favourites" />
+          </AssociationSet>
+          <AssociationSet Name="FK__wday__pid__173876EA" Association="Self.FK__wday__pid__173876EA">
             <End Role="place" EntitySet="places" />
             <End Role="wday" EntitySet="wdays" />
           </AssociationSet>
-          <AssociationSet Name="FK__wthreeh__pid__2A4B4B5E" Association="Self.FK__wthreeh__pid__2A4B4B5E">
+          <AssociationSet Name="FK__wthreeh__pid__1920BF5C" Association="Self.FK__wthreeh__pid__1920BF5C">
             <End Role="place" EntitySet="places" />
             <End Role="wthreeh" EntitySet="wthreehs" />
           </AssociationSet>
@@ -220,9 +300,18 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="weatherModelStoreContainer" CdmEntityContainer="weatherEntities">
+        <EntityContainerMapping StorageEntityContainer="weatherfavModelStoreContainer" CdmEntityContainer="weatherfavEntities">
+          <EntitySetMapping Name="favourites">
+            <EntityTypeMapping TypeName="weatherfavModel.favourite">
+              <MappingFragment StoreEntitySet="favourite">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="places">
-            <EntityTypeMapping TypeName="weatherModel.place">
+            <EntityTypeMapping TypeName="weatherfavModel.place">
               <MappingFragment StoreEntitySet="place">
                 <ScalarProperty Name="pid" ColumnName="pid" />
                 <ScalarProperty Name="city" ColumnName="city" />
@@ -232,9 +321,9 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="registers">
-            <EntityTypeMapping TypeName="weatherModel.register">
+            <EntityTypeMapping TypeName="weatherfavModel.register">
               <MappingFragment StoreEntitySet="register">
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="u_id" ColumnName="u_id" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -249,7 +338,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="wdays">
-            <EntityTypeMapping TypeName="weatherModel.wday">
+            <EntityTypeMapping TypeName="weatherfavModel.wday">
               <MappingFragment StoreEntitySet="wday">
                 <ScalarProperty Name="pid" ColumnName="pid" />
                 <ScalarProperty Name="maintemp_min" ColumnName="maintemp_min" />
@@ -261,7 +350,7 @@ warning 6002: The table/view 'weather.dbo.wthreeh' does not have a primary key d
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="wthreehs">
-            <EntityTypeMapping TypeName="weatherModel.wthreeh">
+            <EntityTypeMapping TypeName="weatherfavModel.wthreeh">
               <MappingFragment StoreEntitySet="wthreeh">
                 <ScalarProperty Name="pid" ColumnName="pid" />
                 <ScalarProperty Name="wind_deg" ColumnName="wind_deg" />

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2fbe783b99a44b2a4fc5e492a44f788" Name="Diagram1">
+        <EntityTypeShape EntityType="weatherfavModel.favourite" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="weatherfavModel.place" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="weatherfavModel.register" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="weatherfavModel.wday" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="weatherfavModel.wthreeh" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="weatherfavModel.FK__favourite__pid__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="weatherfavModel.FK__favourite__u_id__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="weatherfavModel.FK__wday__pid__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="weatherfavModel.FK__wthreeh__pid__1920BF5C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
