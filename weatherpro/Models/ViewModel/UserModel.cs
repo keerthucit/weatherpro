@@ -10,8 +10,7 @@ namespace weatherpro.Models.ViewModel
     {
         [Key]
         public int register { get; set; }
-        public int id { get; set; }
-    
+        public int id{ get; set; }
         [Required(ErrorMessage = "*")]
         [Display(Name = "UserName")]
         public string UserName { get; set; }

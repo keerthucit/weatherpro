@@ -127,6 +127,7 @@
     <Content Include="Content\ourproject\sat.png" />
     <Content Include="Content\ourproject\satelite.png" />
     <Content Include="Content\ourproject\satellite.html" />
+    <Content Include="Content\ourproject\search.PNG" />
     <Content Include="Content\ourproject\second.PNG" />
     <Content Include="Content\ourproject\Sign in.html" />
     <Content Include="Content\ourproject\style1.css" />
@@ -137,16 +138,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DB\datamodel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>datamodel.edmx</DependentUpon>
-      <LastGenOutput>datamodel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DB\datamodel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>datamodel.edmx</DependentUpon>
-      <LastGenOutput>datamodel.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -162,7 +153,24 @@
     <Content Include="Content\ourproject\style1.css.bak" />
     <Content Include="Content\ourproject\view.css.bak" />
     <Content Include="Content\ourproject\weather_footer.html.bak" />
+    <EntityDeploy Include="Models\DB\weatherData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>weatherData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DB\weatherData.edmx.diagram">
+      <DependentUpon>weatherData.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Models\DB\weatherData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>weatherData.edmx</DependentUpon>
+      <LastGenOutput>weatherData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DB\weatherData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>weatherData.edmx</DependentUpon>
+      <LastGenOutput>weatherData.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -173,43 +181,50 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\registers\Login.cshtml" />
     <Content Include="Views\registers\AfterLogin.cshtml" />
     <Content Include="Views\registers\home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\favouritesController.cs" />
+    <Compile Include="Controllers\placesController.cs" />
     <Compile Include="Controllers\registersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB\datamodel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>datamodel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\datamodel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>datamodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB\datamodel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>datamodel.edmx</DependentUpon>
+    <Compile Include="Models\DB\favourite.cs">
+      <DependentUpon>weatherData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\place.cs">
-      <DependentUpon>datamodel.tt</DependentUpon>
+      <DependentUpon>weatherData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\register.cs">
-      <DependentUpon>datamodel.tt</DependentUpon>
+      <DependentUpon>weatherData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\wday.cs">
-      <DependentUpon>datamodel.tt</DependentUpon>
+      <DependentUpon>weatherData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\weatherData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>weatherData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\weatherData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>weatherData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB\weatherData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>weatherData.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\wthreeh.cs">
-      <DependentUpon>datamodel.tt</DependentUpon>
+      <DependentUpon>weatherData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,13 +232,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <EntityDeploy Include="Models\DB\datamodel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>datamodel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DB\datamodel.edmx.diagram">
-      <DependentUpon>datamodel.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\registers\Create.cshtml" />
@@ -232,6 +240,23 @@
     <Content Include="Views\registers\Edit.cshtml" />
     <Content Include="Views\registers\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\places\Create.cshtml" />
+    <Content Include="Views\places\Delete.cshtml" />
+    <Content Include="Views\places\Details.cshtml" />
+    <Content Include="Views\places\Edit.cshtml" />
+    <Content Include="Views\places\Index.cshtml" />
+    <Content Include="Views\places\Search.cshtml" />
+    <Content Include="Views\wthreehs\Create.cshtml" />
+    <Content Include="Views\wthreehs\Delete.cshtml" />
+    <Content Include="Views\wthreehs\Details.cshtml" />
+    <Content Include="Views\wthreehs\Edit.cshtml" />
+    <Content Include="Views\wthreehs\Index.cshtml" />
+    <Content Include="Views\favourites\Create.cshtml" />
+    <Content Include="Views\favourites\Delete.cshtml" />
+    <Content Include="Views\favourites\Details.cshtml" />
+    <Content Include="Views\favourites\Edit.cshtml" />
+    <Content Include="Views\favourites\Index.cshtml" />
+    <Content Include="Views\registers\Create1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

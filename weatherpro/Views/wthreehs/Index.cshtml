@@ -1,0 +1,69 @@
+﻿@model IEnumerable<weatherpro.Models.DB.wthreeh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br /><br /><br /><br />
+
+<br /><br /><br /><br />
+<br /><br /><br /><br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.wind_deg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wind_speed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weather_description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rain_cmthreeh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.place.city)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.wind_deg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wind_speed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weather_description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rain_cmthreeh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.place.city)
+        </td>
+ 
+    </tr>
+    <BR /><BR />
+}
+
+</table>

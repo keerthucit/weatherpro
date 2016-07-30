@@ -1,4 +1,5 @@
-﻿@{
+﻿@model weatherpro.Models.DB.place
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
@@ -12,13 +13,44 @@
         Welcome @Session["LoggedUsername"].ToString()
     </h1>
 }
-else
-{
-    <h2>Login Unsuccessful!!!</h2>
-}
-@if (ViewBag.Error != null)
-{
-    <h3 style="color:red">@ViewBag.Error</h3>
-}
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<form id="tf1newsearch" method="get" action="@Url.Action("AfterLogin","registers")">
+    <input type=" text" id="tfq" class="tftextinput2" name="city" size="21" maxlength="120" style="-webkit-border-radius: 5px; -moz-border-radius:5px;" placeholder="Input favourite city name">
+    &nbsp&nbsp
+
+    <input type="submit" value="Search" style="background:#D26c22;color:white;-webkit-border-radius: 5px;border: none; -moz-border-radius:5px;padding:1.4%"></input>
+</form>
+
+<h2>
+    @Session["LoggedCityname"]
+
+</h2>
+
+<table class="table">
+ 
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(model => model.coord_lon)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.coord_lat)
+        </td>
+    </tr>
+    </table>
+    <br />
+    <br />
+
+<form id="tf1newsearch" method="get" action="@Url.Action("Create","favourites")">
+    <div>
+        <input type="submit" value="Add City as Favourite" style="background-color:darkorange;" />
+    </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<weatherpro.Models.DB.place>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coord_lon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coord_lat)
+        </th>
+      
+        <th></th>
+    </tr>
+
+ 
+
+</table>

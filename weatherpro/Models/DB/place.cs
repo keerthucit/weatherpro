@@ -14,11 +14,19 @@ namespace weatherpro.Models.DB
     
     public partial class place
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public place()
+        {
+            this.favourites = new HashSet<favourite>();
+        }
+    
         public int pid { get; set; }
         public string city { get; set; }
         public Nullable<double> coord_lon { get; set; }
         public Nullable<double> coord_lat { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<favourite> favourites { get; set; }
         public virtual wday wday { get; set; }
         public virtual wthreeh wthreeh { get; set; }
     }
